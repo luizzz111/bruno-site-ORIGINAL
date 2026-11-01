@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Pré·Leilão INVEST — Imóveis Antes do Edital</title>
+  
+  <!-- Fontes Cinematográficas: Syne/Plus Jakarta (Display) + Instrument Serif (Luxo) + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=20261031-aerial-video-240">
+</head>
+<body>
+
+  <!-- BARRA DE PROGRESSO DE LEITURA NO TOPO -->
+  <div class="reading-progress" id="reading-progress"></div>
+
+  <!-- Vídeo aéreo do bairro, editado e licenciado para uso com atribuição -->
+  <video id="cinema-video" class="cinema-video" src="./assets/property-background-aerial.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+  </video>
+
+  <!-- NAVBAR FLUTUANTE EM VIDRO (ESTILO APPLE) -->
+  <header class="glass-nav">
+    <div class="nav-container">
+      <a href="#inicio" class="brand-logo">
+        Pré<span>·Leilão</span>
+        <small class="invest-badge">INVEST</small>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu" id="primary-navigation">
+        <a class="mobile-login" href="https://www.preleilaobr.com.br/invest/login">Entrar na sua conta</a>
+        <a href="#inicio">Início</a>
+        <a href="#oportunidades">Oportunidades (245)</a>
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#calculadora">Calculadora</a>
+        <a href="#planos">Assinar</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="https://www.preleilaobr.com.br/invest/login" class="btn-glass">Entrar</a>
+        <a href="#planos" class="btn-gold">Assinar · R$ 79/mês</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       CENA 1: HERO CINEMATOGRÁFICO + FILTRO INTERATIVO DA LIA
+       ======================================================================== -->
+  <section id="inicio" class="hero-cinema">
+    <div class="container">
+      <div class="hero-layout">
+        <div class="hero-center reveal-up">
+          <div class="pill-spotlight">
+            <span class="pulse-ring"></span>
+            <span>INTELIGÊNCIA IMOBILIÁRIA PRÉ-EDITAL · ATUALIZAÇÃO DIÁRIA</span>
+          </div>
+
+          <h1 class="cinema-title">
+            Imóveis que vão a leilão,<br>
+            <em>antes do edital sair.</em>
+          </h1>
+
+          <p class="cinema-subtitle">
+            Encontramos o imóvel enquanto o processo ainda corre na Justiça e mostramos exatamente quanto vale dar de lance, com base em vendas reais do mesmo prédio e bairro.
+          </p>
+        </div>
+
+        <figure class="hero-visual reveal-up">
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85"
+            alt="Fachada contemporânea de uma residência cercada por árvores"
+            fetchpriority="high"
+          >
+          <div class="hero-visual-shade"></div>
+          <figcaption class="hero-visual-caption">
+            <span class="visual-caption-mark">01</span>
+            <span>
+              <strong>O próximo grande negócio</strong>
+              <small>pode estar antes do edital.</small>
+            </span>
+          </figcaption>
+          <span class="hero-visual-stamp">RADAR PRÉ-EDITAL <span>·</span> BRASIL</span>
+        </figure>
+      </div>
+
+      <div class="hero-metrics reveal-up">
+        <div class="metric-glass">
+          <strong class="counter" data-target="245">245</strong>
+          <span>Oportunidades abertas hoje</span>
+        </div>
+        <div class="metric-glass">
+          <strong>6 Estados</strong>
+          <span>SP, RJ, MG, PR, SC e RS</span>
+        </div>
+        <div class="metric-glass">
+          <strong>Até 50%</strong>
+          <span>De margem na 2ª praça</span>
+        </div>
+      </div>
+
+      <!-- CARD INTERATIVO DA LIA (FILTRA A LISTA ABAIXO EM TEMPO REAL) -->
+      <div class="lia-concierge-box reveal-up">
+        <div class="lia-avatar-wrap">
+          <div class="lia-orb"></div>
+          <div>
+            <span class="lia-tag">CONCIERGE DE INVESTIMENTOS IA</span>
+            <h3>"Oi, eu sou a Lia. Quanto você quer investir hoje?"</h3>
+          </div>
+        </div>
+
+        <div class="lia-filter-pills">
+          <button class="filter-pill active" onclick="filterProperties('all', this)">
+            Qualquer valor <small>(245)</small>
+          </button>
+          <button class="filter-pill" onclick="filterProperties('ate500', this)">
+            Até R$ 500 mil <small>(84)</small>
+          </button>
+          <button class="filter-pill" onclick="filterProperties('500a1500', this)">
+            R$ 500 mil a R$ 1,5 mi <small>(112)</small>
+          </button>
+          <button class="filter-pill" onclick="filterProperties('acima1500', this)">
+            Acima de R$ 1,5 mi <small>(49)</small>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CENA 2: VITRINE DE OPORTUNIDADES REAIS COM INCLINAÇÃO 3D (BENTO CARDS)
+       ======================================================================== -->
+  <section id="oportunidades" class="showcase-section">
+    <div class="container">
+      
+      <div class="section-head reveal-up">
+        <div>
+          <span class="eyebrow">GARIMPO JUDICIAL EM TEMPO REAL</span>
+          <h2>Oportunidades <em>abertas agora</em></h2>
+        </div>
+        <div class="filter-bar-mini">
+          <select id="type-filter" onchange="applySelectFilters()">
+            <option value="all">Todos os tipos</option>
+            <option value="Apartamento">Apartamento</option>
+            <option value="Casa">Casa / Condomínio</option>
+            <option value="Terreno">Terreno</option>
+          </select>
+          <span class="showing-badge">Mostrando <strong id="count-display">6</strong> de 245</span>
+        </div>
+      </div>
+
+      <!-- Grade de Cards com Efeito 3D Hover -->
+      <div class="bento-properties" id="properties-grid">
+        <!-- Renderizado dinamicamente pelo script.js com os dados reais do /invest -->
+      </div>
+
+      <div class="unlock-banner reveal-up">
+        <div class="unlock-info">
+          <span class="eyebrow">ACESSO COMPLETO PARA ASSINANTES</span>
+          <h3>Mais 235 oportunidades mapeadas hoje esperando seu lance</h3>
+          <p>Desbloqueie endereço exato, matrícula, vendas do mesmo condomínio e lance máximo calculado.</p>
+        </div>
+        <a href="#planos" class="btn-gold btn-large">Destravar todas por R$ 79/mês →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CENA 3: PALCO CINEMATOGRÁFICO SCROLLYTELLING (OS 5 ATOS DO /INVEST)
+       ======================================================================== -->
+  <section id="como-funciona" class="cinema-scrolly-track">
+    <div class="cinema-sticky-stage">
+      <div class="container stage-layout">
+        
+        <!-- Lado Esquerdo: Roteiro dos 5 Atos -->
+        <div class="stage-narrative">
+          <span class="eyebrow">DO PROCESSO NA JUSTIÇA AO SEU LANCE</span>
+          <h2 class="stage-main-title">Tudo o que você vê <em>dentro do sistema</em>.</h2>
+          
+          <div class="act-list">
+            <div class="act-item active" data-act="0" onclick="setCinemaAct(0)">
+              <span class="act-num">01</span>
+              <div>
+                <h4>O Card revela a margem na hora</h4>
+                <p>Avaliação judicial, lance máximo recomendado e a régua entre 2ª praça e vendas reais.</p>
+              </div>
+            </div>
+
+            <div class="act-item" data-act="1" onclick="setCinemaAct(1)">
+              <span class="act-num">02</span>
+              <div>
+                <h4>Raio-X do Prédio, Matrícula e Processo</h4>
+                <p>Compare por quanto imóveis idênticos no mesmo prédio foram vendidos e arrematados.</p>
+              </div>
+            </div>
+
+            <div class="act-item" data-act="2" onclick="setCinemaAct(2)">
+              <span class="act-num">03</span>
+              <div>
+                <h4>Termômetro de Liquidez do Bairro</h4>
+                <p>Saiba se o bairro está aquecido, quantas vendas ocorreram em 24 meses e a faixa do m².</p>
+              </div>
+            </div>
+
+            <div class="act-item" data-act="3" onclick="setCinemaAct(3)">
+              <span class="act-num">04</span>
+              <div>
+                <h4>Calculadora de Lance Máximo</h4>
+                <p>Defina o lucro líquido que você quer embolsar; nós descontamos impostos, reforma e comissão.</p>
+              </div>
+            </div>
+
+            <div class="act-item" data-act="4" onclick="setCinemaAct(4)">
+              <span class="act-num">05</span>
+              <div>
+                <h4>Quadro Kanban "Meus Imóveis"</h4>
+                <p>Organize suas oportunidades do interesse inicial à análise de matrícula até o arremate.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lado Direito: Tela de Vidro 3D que muda de cena conforme o Scroll -->
+        <div class="stage-screen-wrapper">
+          <div class="stage-glass-window" id="cinema-window">
+            
+            <div class="window-topbar">
+              <div class="window-dots"><span></span><span></span><span></span></div>
+              <div class="window-url" id="stage-url">app.preleilaobr.com.br/invest/moema-sp</div>
+              <div class="window-tag" id="stage-badge">ATO 1 / 5</div>
+            </div>
+
+            <div class="window-content" id="stage-dynamic-content">
+              <!-- Preenchido dinamicamente conforme o giro do scroll -->
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CENA 4: CALCULADORA INTERATIVA DE LANCE MÁXIMO (EXEMPLO REAL MOEMA)
+       ======================================================================== -->
+  <section id="calculadora" class="calculator-cinema-section">
+    <div class="container">
+      <div class="calc-glass-shell reveal-up">
+        
+        <div class="calc-controls-col">
+          <span class="eyebrow">SIMULADOR DE VIABILIDADE REAL</span>
+          <h2>A calculadora diz exatamente <em>quanto dar de lance</em>.</h2>
+          <p class="calc-lead">
+            Coloque o valor de revenda e a margem líquida que você quer ter. O sistema desconta comissão do leiloeiro (5%), ITBI (3%), escritura (1,5%) e mostra se o lance cabe na 2ª praça.
+          </p>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Valor de venda no mercado (R$)</span>
+              <strong id="lbl-venda">R$ 790.000</strong>
+            </div>
+            <input type="range" id="inp-venda" min="300000" max="3000000" step="10000" value="790000" oninput="runBidCalculator()">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Margem de lucro desejada (%)</span>
+              <strong id="lbl-margem">20%</strong>
+            </div>
+            <input type="range" id="inp-margem" min="10" max="45" step="1" value="20" oninput="runBidCalculator()">
+          </div>
+
+          <div class="tax-pills">
+            <span>Comissão Leiloeiro: <b>5%</b></span>
+            <span>ITBI: <b>3%</b></span>
+            <span>Registro/Escritura: <b>1,5%</b></span>
+          </div>
+        </div>
+
+        <div class="calc-result-col">
+          <div class="bid-verdict-box">
+            <span class="verdict-eyebrow">SEU TETO DE SEGURANÇA (LANCE MÁXIMO)</span>
+            <div class="bid-giant-number" id="res-lance-max">R$ 577.169</div>
+            <p id="res-explicacao">
+              Para vender por <strong>R$ 790.000</strong> e embolsar <strong>20% de margem líquida</strong> (≈ R$ 158.000 de lucro).
+            </p>
+
+            <div class="praca-comparison">
+              <div class="praca-item">
+                <span>1ª Praça (Avaliação)</span>
+                <strong id="res-praca1">R$ 820.000</strong>
+              </div>
+              <div class="praca-item highlight">
+                <span>2ª Praça (50% Aval.)</span>
+                <strong id="res-praca2">R$ 410.000</strong>
+              </div>
+            </div>
+
+            <div class="viability-badge">
+              ✓ CABE COM FOLGA NA 2ª PRAÇA · MARGEM VALIDADA
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CENA 5: PLANO VITALÍCIO R$ 79/MÊS + FAQ
+       ======================================================================== -->
+  <section id="planos" class="pricing-cinema-section">
+    <div class="container">
+      
+      <div class="pricing-spotlight-card reveal-up">
+        <div class="pricing-glow"></div>
+        
+        <div class="pricing-left">
+          <div class="lifetime-tag">★ PREÇO VITALÍCIO PARA QUEM ASSINAR ATÉ 31/12/2026</div>
+          <h2>Todas as 245 oportunidades, com a <em>análise completa</em>.</h2>
+          <p>Saia na frente dos portais comuns e receba os imóveis enquanto o processo ainda corre na Justiça.</p>
+
+          <ul class="pricing-features">
+            <li><span>✓</span> Lance máximo calculado automaticamente para a sua margem</li>
+            <li><span>✓</span> Vendas reais no mesmo prédio, rua e bairro (R$/m²)</li>
+            <li><span>✓</span> Histórico de arremates da região e termômetro do mercado</li>
+            <li><span>✓</span> Endereço completo, número da matrícula e link do processo</li>
+            <li><span>✓</span> Quadro Kanban "Meus Imóveis" com exportação para Excel</li>
+          </ul>
+        </div>
+
+        <div class="pricing-right">
+          <figure class="plan-visual">
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85"
+              alt="Casa contemporânea entre árvores, representando as oportunidades imobiliárias do plano"
+              loading="lazy"
+            >
+            <figcaption>
+              <span>SEU PRÓXIMO INVESTIMENTO</span>
+              <strong>Começa com uma boa oportunidade.</strong>
+            </figcaption>
+          </figure>
+          <div class="plan-details">
+            <span class="plan-period">PLANO ANUAL · CANCELE A RENOVAÇÃO QUANDO QUISER</span>
+            <div class="price-display">
+              <small>R$</small>79<span>/mês</span>
+            </div>
+            <p class="price-sub">Menos de R$ 2,65 por dia para acessar o radar completo em 6 estados.</p>
+            <a href="https://www.preleilaobr.com.br/invest/cadastro" class="btn-gold btn-full">Criar conta e assinar agora →</a>
+            <a href="https://wa.me/5519982162617?text=Oi%2C%20quero%20saber%20mais%20do%20Pr%C3%A9-Leil%C3%A3o%20Invest" target="_blank" class="btn-glass btn-full" style="margin-top: 10px;">
+              Falar com nosso time no WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Perguntas Frequentes -->
+      <div class="faq-cinema reveal-up">
+        <h3 class="faq-heading">Dúvidas Frequentes</h3>
+        <div class="faq-grid">
+          <details class="faq-glass">
+            <summary>O que é um imóvel em pré-leilão?</summary>
+            <p>É um imóvel penhorado em um processo judicial que caminha para leilão, mas cujo edital ainda não foi publicado. Quem acompanha desde cedo tem tempo para estudar a matrícula, visitar a região e preparar o lance sem correria.</p>
+          </details>
+          <details class="faq-glass">
+            <summary>Qual a diferença entre 1ª e 2ª praça?</summary>
+            <p>Na 1ª praça o lance mínimo costuma ser o valor da avaliação judicial. Se não houver comprador, abre-se a 2ª praça, geralmente a partir de 50% do valor da avaliação.</p>
+          </details>
+          <details class="faq-glass">
+            <summary>Preciso de advogado para dar lance?</summary>
+            <p>Não é obrigatório para dar lance no leilão, mas dentro da plataforma você pode solicitar análise de matrícula ou apoio de assessoria especializada com 1 clique.</p>
+          </details>
+          <details class="faq-glass">
+            <summary>Posso cancelar a assinatura?</summary>
+            <p>Sim. O plano é anual com preço congelado vitalício de R$ 79/mês e você pode cancelar a renovação a qualquer momento direto pelo painel.</p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODAL CINEMATOGRÁFICO QUANDO CLICA NUM IMÓVEL ("VOCÊ ESCOLHEU") -->
+  <div id="property-modal" class="modal-backdrop hidden" onclick="closeModal(event)">
+    <div class="modal-glass" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <span class="eyebrow">OPORTUNIDADE SELECIONADA</span>
+      <h3 id="modal-title">Apartamento · 150 a 180 m²</h3>
+      <p id="modal-loc" class="modal-location">Perdizes, São Paulo</p>
+
+      <div class="modal-metrics">
+        <div>
+          <span>Avaliação Judicial</span>
+          <strong id="modal-aval">R$ 1,4 a 1,6 mi</strong>
+        </div>
+        <div>
+          <span>Lances a partir de (2ª Praça)</span>
+          <strong id="modal-lance" class="text-gold">≈ R$ 750 mil</strong>
+        </div>
+      </div>
+
+      <div class="modal-locked-box">
+        <strong>🔒 Com a assinatura Pré-Leilão Invest você libera neste imóvel:</strong>
+        <ul>
+          <li>✓ Endereço exato, número da matrícula e processo judicial</li>
+          <li>✓ Lance máximo recomendado para ter 20% de lucro líquido</li>
+          <li>✓ Vendas reais de apartamentos no mesmo prédio e rua</li>
+        </ul>
+      </div>
+
+      <div class="modal-cta-row">
+        <div>
+          <span class="plan-period">PLANO ANUAL VITALÍCIO</span>
+          <div style="font-size: 1.6rem; font-weight: 800; color: #a3e635;">R$ 79<small style="font-size:0.9rem; color:#94a3b8;">/mês</small></div>
+        </div>
+        <a href="https://www.preleilaobr.com.br/invest/cadastro" class="btn-gold">Desbloquear Imóvel Agora →</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="cinema-footer">
+    <div class="container footer-flex">
+      <div>
+        <span class="brand-logo">Pré<span>·Leilão</span> <small class="invest-badge">INVEST</small></span>
+        <p>© 2026 Pré-Leilão Invest · Todos os direitos reservados.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://commons.wikimedia.org/wiki/File:6k_Newport_RI,_Historic_District_Drone.webm" target="_blank" rel="noopener noreferrer">Vídeo: the Dronalist (editado)</a>
+        <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">Licença CC BY 3.0</a>
+        <a href="#inicio">Voltar ao Topo ↑</a>
+        <a href="https://wa.me/5519982162617" target="_blank">Fale com nosso time</a>
+        <a href="https://www.preleilaobr.com.br/invest/login">Área do Assinante</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=20261031-aerial-video-240"></script>
+</body>
+</html>
